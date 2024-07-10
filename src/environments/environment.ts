@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://103.226.248.168:9111',
+    apiUrl: 'http://blissful-reflection-production.up.railway.app:8080',
 };
 
 /*
