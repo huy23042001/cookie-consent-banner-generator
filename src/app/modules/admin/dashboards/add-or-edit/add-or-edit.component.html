@@ -1,0 +1,83 @@
+<div [formGroup]="formGroup" class="mb-4">
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title><strong>WEB CLIENT CONFIG</strong></mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="flex w-full gap-2">
+                <div class="w-full">
+                    <div class="w-full mb-2">
+                        <mat-form-field appearance="fill"  class="w-full">
+                            <input matInput class="w-full" [readonly]="readonly"
+                                   formControlName="webConfig"
+                                   placeholder="Web Client Link">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div class="mb-4"></div>
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title><strong>LAYOUT CONFIG</strong></mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="flex w-full gap-2">
+                <div class="w-full">
+                    <div class="font-bold text-lg text-center mb-4">Cookie Banner</div>
+                    <div class="w-full mb-2">
+                        <mat-form-field appearance="fill"  class="w-full">
+                            <input matInput class="w-full"  [readonly]="readonly"
+                                   formControlName="cookieBannerTitle"
+                                   placeholder="Cookie Title">
+                        </mat-form-field>
+                    </div>
+                    <div class="w-full mb-2">
+                        <mat-form-field appearance="fill"  class="w-full">
+                            <textarea matInput class="w-full" rows="6"  [readonly]="readonly"
+                                      formControlName="cookieBannerContent"
+                                      placeholder="Cookie Content"></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <div class="font-bold text-lg text-center mb-4">Ads Banner</div>
+                    <div class="w-full mb-2">
+                        <mat-form-field appearance="fill"  class="w-full">
+                            <input matInput class="w-full"  [readonly]="readonly"
+                                   formControlName="adsBannerTitle"
+                                   placeholder="Ads Title">
+                        </mat-form-field>
+                    </div>
+                    <div class="w-full mb-2">
+                        <mat-form-field appearance="fill"  class="w-full">
+                            <textarea matInput class="w-full" rows="6"  [readonly]="readonly"
+                                      formControlName="adsBannerContent"
+                                      placeholder="Ads Content"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="w-full mb-2">
+                        <mat-form-field appearance="fill"  class="w-full">
+                            <input matInput class="w-full"  [readonly]="readonly"
+                                   formControlName="adsBannerLink"
+                                   placeholder="Ads Link">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div class="mb-4"></div>
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title><strong>COOKIE CONFIG</strong></mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-category [categoryName]="'Necessary Cookies'" #necessaryComponent  [readonly]="readonly" [formArray]="formGroup.get('necessary')"></app-category>
+            <app-category [categoryName]="'Preferences Cookies'" #preferencesComponent  [readonly]="readonly" [formArray]="formGroup.get('preferences')"></app-category>
+            <app-category [categoryName]="'Statistics Cookies'" #statisticsComponent  [readonly]="readonly" [formArray]="formGroup.get('statistics')"></app-category>
+            <app-category [categoryName]="'Marketing Cookies'" #marketingComponent  [readonly]="readonly" [formArray]="formGroup.get('marketing')"></app-category>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

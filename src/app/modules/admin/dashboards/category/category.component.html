@@ -1,0 +1,27 @@
+<div class="py-4">
+    <div class="flex justify-between w-full mb-2">
+        <div class="text-lg font-bold">{{categoryName}}</div>
+        <button  *ngIf="!readonly" mat-stroked-button color="primary" (click)="add()">Add Cookie</button>
+    </div>
+    <ng-container *ngFor="let cookieForm of formArray.controls; let i = index">
+        <div class="flex w-full gap-2 items-center mb-2" [formGroup]="cookieForm">
+            <div class="w-full">
+                <mat-form-field appearance="fill"  class="w-full">
+                    <mat-label>Cookie Name</mat-label>
+                    <input matInput class="w-full"  [readonly]="readonly"
+                           formControlName="name"
+                           placeholder="Cookie Name">
+                </mat-form-field>
+            </div>
+            <div class="w-full">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Cookie Value</mat-label>
+                    <input matInput class="w-full"  [readonly]="readonly"
+                           formControlName="value"
+                           placeholder="Cookie value">
+                </mat-form-field>
+            </div>
+            <mat-icon *ngIf="!readonly" [svgIcon]="'heroicons_solid:trash'" class="icon-size-5 cursor-pointer" (click)="delete(i)"></mat-icon>
+        </div>
+    </ng-container>
+</div>

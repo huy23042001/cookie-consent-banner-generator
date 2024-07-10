@@ -1,0 +1,58 @@
+<div class="p-6 bg-card w-full">
+    <div class='text-3xl font-bold'>SCRIPT HISTORY</div>
+    <app-data-table [paginate]="false" [columns]="columns" [rows]="rows" [rowTemplate]="rowTemplate"></app-data-table>
+</div>
+<ng-template #rowTemplate let-row="row" let-column="column">
+    <ng-container [ngSwitch]="column.columnDef">
+        <ng-container *ngSwitchCase="'option'">
+            <button mat-icon-button (click)="copyToClipboard(row.script)">
+                <mat-icon svgIcon="heroicons_outline:clipboard-list" title="Copy Script to clipboard"  class="icon-size-5"></mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewDetail(row)">
+                <mat-icon svgIcon="heroicons_outline:information-circle" title="View Detail"  class="icon-size-5"></mat-icon>
+            </button>
+        </ng-container>
+<!--        <ng-container *ngSwitchCase="'cookie'">-->
+<!--            <div *ngIf="row.cookie.necessary" class="flex gap-2">-->
+<!--                <div class="w-1/4 font-bold">Necessary:</div>-->
+<!--                <div class="flex flex-col">-->
+<!--                    <div *ngFor="let cookie of row.cookie.necessary.data" class="flex gap-2">-->
+<!--                        <span>name: {{cookie.name}}</span>-->
+<!--                        <span>value: {{cookie.value}}</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--            <div *ngIf="row.cookie.preferences" class="flex gap-2">-->
+<!--                <div class="w-1/4 font-bold">Preferences:</div>-->
+<!--                <div class="flex flex-col">-->
+<!--                    <div *ngFor="let cookie of row.cookie.preferences.data" class="flex gap-2">-->
+<!--                        <span>name: {{cookie.name}}</span>-->
+<!--                        <span>value: {{cookie.value}}</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div *ngIf="row.cookie.statistics" class="flex gap-2">-->
+<!--                <div class="w-1/4 font-bold">Statistics:</div>-->
+<!--                <div class="flex flex-col">-->
+<!--                    <div *ngFor="let cookie of row.cookie.statistics.data" class="flex gap-2">-->
+<!--                        <span>name: {{cookie.name}}</span>-->
+<!--                        <span>value: {{cookie.value}}</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div *ngIf="row.cookie.marketing" class="flex gap-2">-->
+<!--                <div class="w-1/4 font-bold">Marketing:</div>-->
+<!--                <div class="flex flex-col">-->
+<!--                    <div *ngFor="let cookie of row.cookie.marketing.data" class="flex gap-2">-->
+<!--                        <span>name: {{cookie.name}}</span>-->
+<!--                        <span>value: {{cookie.value}}</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </ng-container>-->
+        <ng-container *ngSwitchDefault>
+            <div [innerHTML]="column.cellRenderer ? column.cellRenderer(row) : row[column.columnDef]"></div>
+        </ng-container>
+    </ng-container>
+</ng-template>

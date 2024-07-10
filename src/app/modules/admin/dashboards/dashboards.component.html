@@ -1,0 +1,11 @@
+<div class="p-6 bg-card w-full h-full">
+    <div class="text-3xl font-bold mb-4">COOKIE CONSENT BANNER GENERATOR</div>
+    <app-add-or-edit #addOrEditComponent></app-add-or-edit>
+    <button mat-raised-button color="primary" (click)="generateScript(addOrEditComponent.formGroup.value)">Generate Script</button>
+    <div class="mt-4" *ngIf="generated">
+        <div class="mb-2 font-bold">Javascript:</div>
+        <div class="p-2 border rounded">
+            <code>{{script}}</code>
+        </div>
+    </div>
+</div>
