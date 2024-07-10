@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://blissful-reflection-production.up.railway.app:8080',
+    apiUrl: 'https://blissful-reflection-production.up.railway.app:8080',
 };
 
 /*
