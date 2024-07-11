@@ -37,13 +37,13 @@ export class HistoryComponent extends BaseComponent implements OnInit {
             columnDef: "cookieConfig",
             header: "Cookie Config",
             cellRenderer: (data) => {
-                if (data.statusConsent == 1) {
+                if (data.statusConsent != 2) {
                     let listCategory = "";
                     try {
                         const config = JSON.parse(data.config);
                         listCategory = Object.keys(config).filter(key => !config[key].disabled).join(", ");
                     } catch (e) {
-                        // console.log(e);
+                        console.log(e);
                     }
                     return listCategory
                 }
